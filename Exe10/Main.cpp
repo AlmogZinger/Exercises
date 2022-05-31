@@ -5,6 +5,8 @@
 #include <string>
 #include "Soldier.h"
 #include "PrivateSoldier.h"
+#include "Officer.h"
+#include "Commander.h"
 using namespace std;
 
 enum option {
@@ -29,7 +31,7 @@ void add(vector<Soldier*> army)
 {
 	vector<int> new_grades;
 	Soldier* s1;
-	int choose, new_ID, new_numOfOp;
+	int choose, new_ID, new_numOfOp,oneGrade;;
 	string new_fname, new_lname;
 	cout << "choose a soldier\n";
 	cout << "enter 1 to add a private\n";
@@ -41,25 +43,32 @@ void add(vector<Soldier*> army)
 
 	switch (choose) {
 	case PRIVATE:
-		int oneGrade;
+	case COMM:
+
 		cout << "enter " << new_numOfOp << " grades\n";
 		for (int i = 0; i < new_numOfOp; i++)
 		{
 			cin >> oneGrade;
 			new_grades.insert(new_grades.begin(), oneGrade);
 		}
-		s1 = new PrivateSoldier(new_ID, new_fname, new_lname, new_numOfOp, new_grades);
+		if (choose == PRIVATE)
+		{
+			s1 = new PrivateSoldier(new_ID, new_fname, new_lname, new_numOfOp, new_grades);
+		}
+		else
+		{
+			cout << "enter 1 if the soldier is combat and 0 if not\n";
+			int isCombet;
+			cin >> isCombet;
+			s1 = new Commander(new_ID, new_fname, new_lname, new_numOfOp, new_grades, (bool)isCombet);
+		}
 		army.insert(army.begin(), s1);
-
-
-		break;
-	case COMM:
-		cout << "enter 1 if the soldier is combat and 0 if not\n";
-		s1 = new co
 		break;
 	case OFFICER:
 		cout << "enter the sociometric score\n";
-		s1 = new Officer
+		cin >> oneGrade;
+		s1 = new Officer(new_ID, new_fname, new_lname, new_numOfOp, oneGrade);
+		army.insert(army.begin(), s1);
 		break;
 	}
 

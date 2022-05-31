@@ -6,7 +6,7 @@ using namespace std;
 class Commander : public PrivateSoldier
 {
 public:
-	Commander(int i, int o, string f, string l, vector<int> n, bool c) : PrivateSoldier(i, o, f, l, n), combat(c) {}
+	Commander(int i, string f, string l, int o, vector<int> n, bool c) : PrivateSoldier(i, o, f, l, n), combat(c) {}
 	~Commander() {}
 	bool medal();
 	void print();
