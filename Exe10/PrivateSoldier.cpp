@@ -1,15 +1,46 @@
-#include "PrivateSoldier.h"
-#include "string"
-#include <iostream>
-using namespace std;
+#include"PrivateSoldier.h"
 
-PrivateSoldier::PrivateSoldier(int id, string fn, string ln, int numOfOp) :PrivateSoldier(id, fn, ln, numOfOp) // ctor
+bool PrivateSoldier::medal()
 {
-	grades = nullptr;
-
+	if (operations >= 10)
+	{
+		float sum = 0;
+		for (int i = 0; i < operations; i++)
+		{
+			sum += grades[i];
+		}
+		if ((float)sum / operations > 95)
+			return true;
+		else
+			return false;
+	}
+	return false;
 }
 
-PrivateSoldier::PrivateSoldier(const PrivateSoldier& source)
+void PrivateSoldier::print()
 {
-
+	cout << "private" << endl;
+	cout << "ID: " << id << endl;
+	cout << "first name: " << firstName << endl;
+	cout << "last name: " << lastName << endl;
+	cout << "num operations: " << operations << endl;
+	cout << "grades: ";
+	vector<int>::iterator it2 = grades.begin();
+	while (it2 != grades.end())
+	{
+		cout << *it2 << " ";
+		++it2;
+	}
+	cout << endl;
+}
+PrivateSoldier::PrivateSoldier(const PrivateSoldier& p)
+{
+	for (int i = 0; i < p.grades.size(); i++)
+	{
+		grades[i] = p.grades[i];
+	}
+	this->id = p.id;
+	this->operations = p.operations;
+	this->firstName = p.firstName;
+	this->lastName = p.lastName;
 }

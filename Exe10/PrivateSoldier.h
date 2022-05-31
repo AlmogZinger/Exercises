@@ -1,23 +1,21 @@
 #pragma once
-#include "string"
 #include <iostream>
-#include "Soldier.h"
+#include"Soldier.h"
+#include<vector>
 using namespace std;
-#ifndef PRIVATESOLDIER_H
-#define PRIVATESOLDIER_H
-
-
 class PrivateSoldier : public Soldier
 {
-
-private:
-	int* grades;
-
 public:
-	PrivateSoldier(int id, string fn, string ln, int numOfOp);
-	PrivateSoldier(const PrivateSoldier& source); //copy ctor
-
-
+	PrivateSoldier(int i, int o, string f, string l, vector<int> n) : Soldier(i, o, f, l), grades(n) {};
+	~PrivateSoldier() { grades.clear(); }
+	PrivateSoldier(const PrivateSoldier& p);
+	bool medal();
+	void print();
+	string soldierType() { return "Private"; }
+	int getSoc() { throw "ERROR: this function is just for officer soldier"; }
+	string getFname() { return firstName; }
+	string getName() { return lastName; }
+	bool isCombat() { return NULL; }
+protected:
+	vector<int> grades;
 };
-
-#endif // !PRIVATESOLDIER_
