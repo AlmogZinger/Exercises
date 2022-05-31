@@ -5,7 +5,7 @@
 
 class Officer : public Soldier
 {
-public:
+public: //aaaaaaaaaaaaaaaaa
 	Officer (int id, string fn, string ln, int numofop, int sgrade): Soldier(id,fn,ln,numofop), socialGrade(sgrade){} //Constractor
 	Officer(const Officer& other); // copy constractor
 	int getSocialGrade();
