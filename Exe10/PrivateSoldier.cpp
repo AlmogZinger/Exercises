@@ -2,14 +2,14 @@
 
 bool PrivateSoldier::medal()
 {
-	if (operations >= 10)
+	if (numOfOp >= 10)
 	{
 		float sum = 0;
-		for (int i = 0; i < operations; i++)
+		for (int i = 0; i < numOfOp; i++)
 		{
 			sum += grades[i];
 		}
-		if ((float)sum / operations > 95)
+		if ((float)sum / numOfOp > 95)
 			return true;
 		else
 			return false;
@@ -20,10 +20,10 @@ bool PrivateSoldier::medal()
 void PrivateSoldier::print()
 {
 	cout << "private" << endl;
-	cout << "ID: " << id << endl;
-	cout << "first name: " << firstName << endl;
-	cout << "last name: " << lastName << endl;
-	cout << "num operations: " << operations << endl;
+	cout << "ID: " << ID << endl;
+	cout << "first name: " << fname << endl;
+	cout << "last name: " << lname << endl;
+	cout << "num operations: " << numOfOp << endl;
 	cout << "grades: ";
 	vector<int>::iterator it2 = grades.begin();
 	while (it2 != grades.end())
@@ -39,8 +39,8 @@ PrivateSoldier::PrivateSoldier(const PrivateSoldier& p)
 	{
 		grades[i] = p.grades[i];
 	}
-	this->id = p.id;
-	this->operations = p.operations;
-	this->firstName = p.firstName;
-	this->lastName = p.lastName;
+	this->ID = p.ID;
+	this->numOfOp = p.numOfOp;
+	this->fname = p.fname;
+	this->lname = p.lname;
 }
