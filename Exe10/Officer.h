@@ -4,8 +4,7 @@
 #include "Soldier.h"
 
 class Officer : public Soldier
-{//uriiiiiiiiiiiiiiii
-	//almooooooooog
+{
 public:
 	Officer (int id, string fn, string ln, int numofop, int sgrade): Soldier(id,fn,ln,numofop), socialGrade(sgrade){} //Constractor
 	Officer(const Officer& other); // copy constractor
