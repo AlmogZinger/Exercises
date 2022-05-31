@@ -1,27 +1,18 @@
 #pragma once
-#ifndef COMM_H
-#define COMM_H
+#include <iostream>
 #include "PrivateSoldier.h"
-
-
-class Commander :public PrivateSoldier
+#include<vector>
+using namespace std;
+class Commander : public PrivateSoldier
 {
 public:
-	Commander(int id, string fn, string ln, int numofop, bool combet) : Soldier(id,fn,ln,numofop) ,isCombet(combet){}
-	~Commander();
-
-protected:
-	bool isCombet; //IF the soldier are combet
-
+	Commander(int i, int o, string f, string l, vector<int> n, bool c) : PrivateSoldier(i, o, f, l, n), combat(c) {}
+	~Commander() {}
+	bool medal();
+	void print();
+	string soldierType() { return "Commander"; }
+	int getSoc() { throw "ERROR: this function is just for officer soldier"; }
+	bool isCombat() { return combat; }
+private:
+	bool combat;
 };
-
-Commander::Commander()
-{
-}
-
-Commander::~Commander()
-{
-}
-#endif // !COMM_H
-
-#include <string>

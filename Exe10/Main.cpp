@@ -65,3 +65,5 @@ void add(vector<Soldier*> army)
 
 }
 
+
+
