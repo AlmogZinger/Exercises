@@ -6,7 +6,7 @@ using namespace std;
 class PrivateSoldier : public Soldier
 {
 public:
-	PrivateSoldier(int i, string f, string l, int o) : Soldier(i, f, l, o) {}
+	PrivateSoldier(int i, string f, string l, int o,vector<int> new_grades) : Soldier(i, f, l, o) ,grades(new_grades){}
 	~PrivateSoldier() { grades.clear(); }
 	PrivateSoldier(const PrivateSoldier& p);
 	bool medal();
