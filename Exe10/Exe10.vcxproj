@@ -140,7 +140,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Commander.h" />
-    <ClInclude Include="Main.h" />
     <ClInclude Include="Officer.h" />
     <ClInclude Include="PrivateSoldier.h" />
     <ClInclude Include="Soldier.h" />

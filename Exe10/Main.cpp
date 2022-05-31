@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <string>
 #include "Soldier.h"
+#include "PrivateSoldier.h"
 using namespace std;
 
 enum option {
@@ -18,26 +19,37 @@ enum option {
 };
 
 enum Type {
-	PRIVATE,// Private soldier.
+	PRIVATE=1,// Private soldier.
 	COMM,//Commander soldier
 	OFFICER //Officer soldier
 };
 
 
-void add(vector<Soldier> army, Soldier* newSoldier)
+void add(vector<Soldier*> army)
 {
-	int choose;
+	int choose, new_ID, new_numOfOp;
+	string new_fname, new_lname;
 	cout << "choose a soldier\n";
 	cout << "enter 1 to add a private\n";
 	cout << "enter 2 to add a commander\n";
 	cout << "enter 3 to add an officer\n";
 	cin >> choose;
 	cout << "enter id, first name, last name and number of operations\n";
-	switch (choose){
-	case PRIVATE: 
-		cout << "enter " << numOfOperations << " grades\n";
-	cout << "enter 1 if the soldier is combat and 0 if not\n";
-	cout << "enter the sociometric score\n";
+	cin >> new_ID>> new_fname >>new_lname>> new_numOfOp; //Get the reguler value..
+
+	switch (choose) {
+	case PRIVATE:
+		Soldier* s1 = new PrivateSoldier(new_ID, new_fname, new_lname, new_numOfOp);
+		army.insert(army.begin(), s1);
+		cout << "enter " << new_numOfOp << " grades\n";
+		break;
+	case COMM:
+		cout << "enter 1 if the soldier is combat and 0 if not\n";
+		break;
+	case OFFICER:
+		cout << "enter the sociometric score\n";
+		break;
+	}
 
 }
 
